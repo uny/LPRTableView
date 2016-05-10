@@ -19,7 +19,7 @@ final class MasterViewController: LPRTableViewController {
         super.viewDidLoad()
 
         navigationItem.leftBarButtonItem = editButtonItem()
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: "insertNewObject:")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: self, action: #selector(MasterViewController.insertNewObject(_:)))
     }
 
     override func didReceiveMemoryWarning() {
