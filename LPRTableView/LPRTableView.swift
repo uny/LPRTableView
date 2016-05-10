@@ -46,7 +46,7 @@ public class LPRTableView: UITableView {
     }
     
     private func initialize() {
-        longPressGestureRecognizer.addTarget(self, action: "longPressGestureRecognized:")
+        longPressGestureRecognizer.addTarget(self, action: #selector(LPRTableView.longPressGestureRecognized(_:)))
         addGestureRecognizer(longPressGestureRecognizer)
     }
 }
@@ -144,7 +144,7 @@ extension LPRTableView {
         initialIndexPath = indexPath
         
         // Enable scrolling for cell.
-        scrollDisplayLink = CADisplayLink(target: self, selector: "scrollTableView:")
+        scrollDisplayLink = CADisplayLink(target: self, selector: #selector(LPRTableView.scrollTableView(_:)))
         scrollDisplayLink?.addToRunLoop(NSRunLoop.mainRunLoop(), forMode: NSDefaultRunLoopMode)
     }
     
