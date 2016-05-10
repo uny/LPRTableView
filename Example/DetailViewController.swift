@@ -12,14 +12,14 @@ final class DetailViewController: UIViewController {
 
     // Can be nil when detailItem is updated by prepareForSegue
     @IBOutlet weak var label: UILabel?
-    
+
     var detailItem: AnyObject? {
         didSet {
             // Update the view.
             configureView()
         }
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -30,7 +30,7 @@ final class DetailViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     private func configureView() {
         // Update the user interface for the detail item.
         guard let detailItem = detailItem else {

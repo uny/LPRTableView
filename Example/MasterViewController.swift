@@ -12,7 +12,7 @@ import LPRTableView
 private let cellIdentifier = "Cell"
 
 final class MasterViewController: LPRTableViewController {
-    
+
     private var objects = [NSDate]()
 
     override func viewDidLoad() {
@@ -26,7 +26,7 @@ final class MasterViewController: LPRTableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
+
     func insertNewObject(sender: UIBarButtonItem) {
         objects.insert(NSDate(), atIndex: 0)
         let indexPath = NSIndexPath(forRow: 0, inSection: 0)
@@ -45,12 +45,12 @@ final class MasterViewController: LPRTableViewController {
 
         let object = objects[indexPath.row]
         cell.textLabel?.text = object.description
-        
+
         // Reset any possible modifications made in `tableView:draggingCell:atIndexPath:` to avoid reusing the modified cell.
 
         return cell
     }
-    
+
 
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
@@ -64,7 +64,7 @@ final class MasterViewController: LPRTableViewController {
             break
         }
     }
-    
+
     // MARK: - Segues
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         switch segue.identifier! {
@@ -80,14 +80,14 @@ final class MasterViewController: LPRTableViewController {
             break
         }
     }
-    
+
     // MARK: - Long Press Reorder
-    
+
     // Important: Update your data source after the user reorders a cell.
     override func tableView(tableView: UITableView, moveRowAtIndexPath sourceIndexPath: NSIndexPath, toIndexPath destinationIndexPath: NSIndexPath) {
         objects.insert(objects.removeAtIndex(sourceIndexPath.row), atIndex: destinationIndexPath.row)
     }
-    
+
     /*
     Optional: Modify the cell (visually) before dragging occurs.
     
@@ -96,21 +96,21 @@ final class MasterViewController: LPRTableViewController {
     override func tableView(tableView: UITableView, draggingCell cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return cell
     }
-    
+
     /*
     Optional: Called within an animation block when the dragging view is about to show.
     */
     override func tableView(tableView: UITableView, willAppearDraggingView view: UIView, atIndexPath indexPath: NSIndexPath) {
         print("The dragged cell is about to be animated!")
     }
-    
+
     /*
     Optional: Called within an animation block when the dragging view is about to hide.
     */
     override func tableView(tableView: UITableView, willDisappearDraggingView view: UIView, atIndexPath indexPath: NSIndexPath) {
         print("The dragged cell is about to be dropped.")
     }
-    
+
     /*
     Optional: Return false for invalid region on cell.
     */
