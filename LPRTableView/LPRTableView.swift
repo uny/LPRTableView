@@ -264,7 +264,7 @@ extension LPRTableView {
 
     internal func scrollTableView(sender: CADisplayLink) {
         let location = longPressGestureRecognizer.locationInView(self)
-        guard location.x.isNaN || location.y.isNaN else {
+        guard !location.x.isNaN || !location.y.isNaN else {
             // Explicitly check for out-of-bound touch
             return
         }
