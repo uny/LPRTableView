@@ -13,26 +13,26 @@ public class LPRTableViewController: UITableViewController {
     public var longPressReorderTableView: LPRTableView {
         return tableView as! LPRTableView
     }
-    
+
     public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         initialize()
     }
-    
+
     public override init(style: UITableViewStyle) {
         super.init(style: style)
         initialize()
     }
-    
+
     public required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
-    
+
     public override func awakeFromNib() {
         super.awakeFromNib()
         initialize()
     }
-    
+
     private func initialize() {
         if !(tableView is LPRTableView) {
             // You should specify LPRTableView class in LPRTableViewController to load from nib.
@@ -48,10 +48,13 @@ extension LPRTableViewController: LPRTableViewDelegate {
     public func tableView(tableView: UITableView, draggingCell cell: UITableViewCell, atIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         return cell
     }
+
     public func tableView(tableView: UITableView, willAppearDraggingView view: UIView, atIndexPath indexPath: NSIndexPath) {
     }
+
     public func tableView(tableView: UITableView, willDisappearDraggingView view: UIView, atIndexPath indexPath: NSIndexPath) {
     }
+
     public func tableView(tableView: UITableView, shouldMoveRowAtIndexPath: NSIndexPath, forGestureRecognizer gestureRecognizer: UILongPressGestureRecognizer) -> Bool {
         return true
     }
